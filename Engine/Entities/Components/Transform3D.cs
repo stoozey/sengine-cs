@@ -1,4 +1,5 @@
 ﻿using Engine.Common.Classes;
+using Engine.Common.Structs;
 
 namespace Engine.Entities.Components;
 

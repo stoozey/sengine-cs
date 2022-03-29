@@ -5,10 +5,27 @@ namespace Engine.Entities;
 public abstract class Entity : IDisposable
 {
     public readonly int Id;
-    public event EventHandler? OnDestroy;
     public bool AutoManageComponents = true;
 
+    public event EventHandler? OnSpawn;
+    public event EventHandler? OnDestroy;
+    
     protected readonly List<Component> Components;
+
+    protected abstract void Construct();
+    protected abstract void Init();
+    
+    protected Entity()
+    {
+        Components = new List<Component>();
+        
+        Id = EntityManager.IncrementEntityId();
+        EntityManager.Entities.Add(this);
+
+        Construct();
+        Init();
+        OnSpawn?.Invoke(this, EventArgs.Empty);
+    }
     
     public T? TryGetComponent<T>() where T : class
     {
@@ -20,13 +37,14 @@ public abstract class Entity : IDisposable
         var _component = TryGetComponent<T>();
         if (_component == null)
             throw new NullReferenceException($"Component {typeof(T)} was null");
-        
-        return (T) TryGetComponent<T>();
+
+        return _component;
     }
 
-    public void AddComponent(Component _component)
+    public void AddComponent(params Component[] _components)
     {
-        Components.Add(_component);
+        foreach (var _component in _components)
+            Components.Add(_component);
     }
 
     public bool RemoveComponent(Component _component)
@@ -63,12 +81,4 @@ public abstract class Entity : IDisposable
     public abstract void Update();
 
     public virtual void Dispose() { }
-
-    protected Entity()
-    {
-        Components = new List<Component>();
-        
-        Id = EntityManager.IncrementEntityId();
-        EntityManager.Entities.Add(this);
-    }
 }

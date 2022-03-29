@@ -1,7 +1,23 @@
 ﻿using System.Numerics;
+using DataPanel.DataTypes;
+using Engine.Controllers;
 using Raylib_cs;
 
 namespace Engine.Entities.Components;
+
+public enum XAlign
+{
+    Left,
+    Center,
+    Right
+}
+
+public enum YAlign
+{
+    Top,
+    Middle,
+    Bottom
+}
 
 public class Sprite2D : Component
 {
@@ -10,10 +26,28 @@ public class Sprite2D : Component
 
     public Color Color = Color.WHITE;
     public float Scale = 1.0f;
-    
-    public void SetTexture(Texture2D _texture)
+    public int Width = 0;
+    public int Height = 0;
+
+    public XAlign XAlign = XAlign.Center;
+    public YAlign YAlign = YAlign.Middle;
+    private readonly Rectangle rectangle = new Rectangle();
+
+    public Rectangle Rectangle
     {
+        get
+        {
+            var _position = transform.Position;
+            return new Rectangle(_position.X, _position.Y, Width, Height);
+        }
+    }
+    
+    public void SetSprite(SpriteData _spriteData)
+    {
+        var _texture = AssetController.GetTexture(_spriteData.Image);
         texture = _texture;
+        Width = _spriteData.Width;
+        Height = _spriteData.Height;
     }
     
     public override void Render()

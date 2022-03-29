@@ -1,4 +1,4 @@
-﻿namespace Engine.Common.Classes;
+﻿namespace Engine.Common.Structs;
 
 public struct Vector2
 {
