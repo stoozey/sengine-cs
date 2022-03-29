@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{67E6798D-DD92-4DC8-9C72-C8EB4CB2FE5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPanel", "DataPanel\DataPanel.csproj", "{1E4B41B7-CD7B-495D-9DFE-7143A2AF1F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67E6798D-DD92-4DC8-9C72-C8EB4CB2FE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E6798D-DD92-4DC8-9C72-C8EB4CB2FE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E6798D-DD92-4DC8-9C72-C8EB4CB2FE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E6798D-DD92-4DC8-9C72-C8EB4CB2FE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E4B41B7-CD7B-495D-9DFE-7143A2AF1F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4B41B7-CD7B-495D-9DFE-7143A2AF1F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4B41B7-CD7B-495D-9DFE-7143A2AF1F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4B41B7-CD7B-495D-9DFE-7143A2AF1F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
