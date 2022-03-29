@@ -1,13 +1,13 @@
-﻿using System.Numerics;
+﻿using Engine.Common.Classes;
 
 namespace Engine.Entities.Components;
 
-public class Transform : Component
+public class Transform3D : Component
 {
-    public Vector3 Position = Vector3.Zero;
-    public Vector3 Rotation = Vector3.Zero;
+    public Vector3 Position;
+    public Vector3 Rotation;
 
-    public Transform(Entity _owner, Vector3? _position = null, Vector3? _rotation = null) : base(_owner)
+    public Transform3D(Entity _owner, Vector3? _position = null, Vector3? _rotation = null) : base(_owner)
     {
         if (_position != null)
             Position = (Vector3) _position;

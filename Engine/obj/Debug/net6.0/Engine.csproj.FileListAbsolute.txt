@@ -10,3 +10,15 @@ E:\Programming\Projects\Rider\TempoSurge\Engine\obj\Debug\net6.0\Engine.dll
 E:\Programming\Projects\Rider\TempoSurge\Engine\obj\Debug\net6.0\refint\Engine.dll
 E:\Programming\Projects\Rider\TempoSurge\Engine\obj\Debug\net6.0\Engine.pdb
 E:\Programming\Projects\Rider\TempoSurge\Engine\obj\Debug\net6.0\ref\Engine.dll
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.csproj.AssemblyReference.cache
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.GeneratedMSBuildEditorConfig.editorconfig
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.AssemblyInfoInputs.cache
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.AssemblyInfo.cs
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.csproj.CoreCompileInputs.cache
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.dll
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\refint\Engine.dll
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\Engine.pdb
+E:\Programming\Projects\Rider\SEngine\Engine\bin\Debug\net6.0\Engine.deps.json
+E:\Programming\Projects\Rider\SEngine\Engine\bin\Debug\net6.0\Engine.dll
+E:\Programming\Projects\Rider\SEngine\Engine\bin\Debug\net6.0\Engine.pdb
+E:\Programming\Projects\Rider\SEngine\Engine\obj\Debug\net6.0\ref\Engine.dll

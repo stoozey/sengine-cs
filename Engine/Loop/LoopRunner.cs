@@ -28,7 +28,7 @@ public static class Runner
         }
         get => windowTitle;
     }
-
+    
     private static Vector2 windowSize = new Vector2(1280, 720);
     public static Vector2 WindowSize
     {
@@ -59,6 +59,8 @@ public static class Runner
         get => targetFps;
     }
 
+    public static Color BackgroundColour = Color.WHITE;
+    
     public static void Initialize()
     {
         Raylib.SetTargetFPS(TargetFps);
@@ -78,7 +80,7 @@ public static class Runner
             
             // Draw
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.WHITE);
+            Raylib.ClearBackground(BackgroundColour);
             Raylib.DrawFPS(0, 0);
             
             foreach (var _loopHandler in LoopHandlers)

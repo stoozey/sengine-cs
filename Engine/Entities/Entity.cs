@@ -10,9 +10,28 @@ public abstract class Entity : IDisposable
 
     protected readonly List<Component> Components;
     
-    public T? GetComponent<T>() where T : class
+    public T? TryGetComponent<T>() where T : class
     {
         return Components.Find(_component => _component.GetType() == typeof(T)) as T;
+    }
+    
+    public T GetComponent<T>() where T : class
+    {
+        var _component = TryGetComponent<T>();
+        if (_component == null)
+            throw new NullReferenceException($"Component {typeof(T)} was null");
+        
+        return (T) TryGetComponent<T>();
+    }
+
+    public void AddComponent(Component _component)
+    {
+        Components.Add(_component);
+    }
+
+    public bool RemoveComponent(Component _component)
+    {
+        return Components.Remove(_component);
     }
     
     public void RenderComponents()

@@ -1,6 +1,6 @@
 ﻿using Raylib_cs;
 
-namespace TempoSurge.Controllers;
+namespace Engine.Controllers;
 
 public static class MusicController
 {
@@ -23,7 +23,7 @@ public static class MusicController
     {
         if (music == null) return;
         
-        Raylib.SeekMusicStream((Music) music, _musicPosition);
+        //Raylib.SeekMusicStream((Music) music, _musicPosition);
     }
     
     public static void UpdateMusicStream()
