@@ -10,11 +10,8 @@ public class Transform2D : Component
 
     public Transform2D(Entity _owner, Vector2? _position = null, Vector2? _rotation = null) : base(_owner)
     {
-        if (_position != null)
-            Position = (Vector2) _position;
-                
-        if (_rotation != null)
-            Rotation = (Vector2) _rotation;
+        Position = (_position ?? new Vector2());
+        Rotation = (_rotation ?? new Vector2());
     }
 
     public override void Render() { }

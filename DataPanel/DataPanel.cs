@@ -24,7 +24,7 @@ public class DataPanel<T> : IDisposable where T: IPanelData
 
     public void ToFile(string _filename)
     {
-        T[] _dataArray = new T[Data.Count()];
+        T[] _dataArray = new T[Data.Count];
         Data.Values.CopyTo(_dataArray, 0);
         
         var _lz4Options = MessagePackSerializerOptions.Standard.WithCompression(MessagePackCompression.Lz4BlockArray);

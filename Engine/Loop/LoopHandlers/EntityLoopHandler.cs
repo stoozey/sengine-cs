@@ -9,15 +9,12 @@ public class EntityLoopHandler : LoopHandler
     {
         foreach (var _entity in EntityManager.Entities.ToArray())
         {
-            _entity.Collide();
-            _entity.Update();
-            
             if (_entity.AutoManageComponents)
                 _entity.UpdateComponents();
+            
+            _entity.Collide();
+            _entity.Update();
         }
-
-        var _collisionEntities = EntityManager.Entities.FindAll(_entity => _entity.TryGetComponent<Collider2D>() != null)
-            .ToArray();
     }
     
     public override void Render()

@@ -41,6 +41,8 @@ public abstract class Entity : IDisposable
         return _component;
     }
 
+    public bool HasComponent<T>() where T : class
+        => (TryGetComponent<T>() != null);
     public void AddComponent(params Component[] _components)
     {
         foreach (var _component in _components)
