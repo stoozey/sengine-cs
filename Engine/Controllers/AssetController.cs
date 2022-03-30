@@ -8,6 +8,9 @@ public static class AssetController
 {
     private static readonly Dictionary<string, Image> Images = new Dictionary<string, Image>();
     private static readonly Dictionary<Image, Texture2D> Texture2Ds = new Dictionary<Image, Texture2D>();
+    
+    private static readonly Dictionary<string, Sound> Sounds = new Dictionary<string, Sound>();
+    private static readonly Dictionary<string, Music> Music = new Dictionary<string, Music>();
 
     private static string GetHash(byte[] _bytes)
     {
@@ -60,5 +63,30 @@ public static class AssetController
         }
         
         Raylib.UnloadTexture(_texture2D);
+    }
+    
+    public static unsafe Sound GetSound(byte[] _soundData)
+    {
+        var _hash = GetHash(_soundData);
+        var _exists = Sounds.TryGetValue(_hash, out var _existingSound);
+        if (_exists) return _existingSound;
+        
+        Sound _sound;
+        fixed (byte* _pBuffer = &_soundData[0])
+            _sound = Raylib.LoadSoundFromWave(Raylib.LoadWaveFromMemory(".wav", (IntPtr) _pBuffer, _soundData.Length));
+        
+        Sounds.Add(_hash, _sound);
+        return _sound;
+    }
+
+    public static void UnloadSound(Sound _sound)
+    {
+        if (Sounds.ContainsValue(_sound))
+        {
+            var _key = Sounds.First(_snd => Equals(_snd.Value, _sound)).Key;
+            Sounds.Remove(_key);
+        }
+        
+        Raylib.UnloadSound(_sound);
     }
 }

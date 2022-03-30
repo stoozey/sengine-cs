@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using DataPanel.DataTypes;
+using Raylib_cs;
 
 namespace Engine.Controllers;
 
@@ -8,15 +9,17 @@ public static class MusicController
 
     public static float MusicPosition => ((music == null) ? 0.0f : Raylib.GetMusicTimePlayed((Music) music));
 
-    public static void SetMusic(string _filename)
+    public static unsafe void SetMusic(AudioData _audioData)
     {
         if (music != null)
         {
             Stop();
             Raylib.UnloadMusicStream((Music) music);
         }
-        
-        music = Raylib.LoadMusicStream(_filename);
+
+        var _soundData = _audioData.Sound;
+        fixed (byte* _pBuffer = &_soundData[0])
+            music = Raylib.LoadMusicStreamFromMemory(_audioData.Format, (IntPtr) _pBuffer, _soundData.Length);
     }
 
     public static void SetMusicPosition(float _musicPosition)

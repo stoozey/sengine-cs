@@ -81,10 +81,11 @@ public static class Runner
             // Draw
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColour);
-            Raylib.DrawFPS(0, 0);
-            
+
             foreach (var _loopHandler in LoopHandlers)
                 _loopHandler.Render();
+            
+            Raylib.DrawFPS(0, 0);
             
             Raylib.EndDrawing();
         }
