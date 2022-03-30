@@ -12,10 +12,8 @@ public static class MusicController
     public static unsafe void SetMusic(AudioData _audioData)
     {
         if (music != null)
-        {
-            Stop();
             Raylib.UnloadMusicStream((Music) music);
-        }
+        
 
         var _soundData = _audioData.Sound;
         fixed (byte* _pBuffer = &_soundData[0])
