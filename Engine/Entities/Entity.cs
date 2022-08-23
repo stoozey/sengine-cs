@@ -1,18 +1,58 @@
-﻿using Engine.Entities.Components;
+﻿using Engine.Controllers;
+using Engine.Entities.Components;
 
 namespace Engine.Entities;
 
 public abstract class Entity : IDisposable
 {
     public readonly int Id;
-    public event EventHandler? OnDestroy;
     public bool AutoManageComponents = true;
 
-    protected readonly List<Component> Components;
+    public event EventHandler? OnSpawn;
+    public event EventHandler? OnDestroy;
     
-    public T? GetComponent<T>() where T : class
+    protected readonly List<Component> Components;
+
+    protected abstract void Construct();
+    protected abstract void Init();
+    
+    protected Entity()
+    {
+        Components = new List<Component>();
+        
+        Id = EntityController.IncrementEntityId();
+        EntityController.Entities.Add(this);
+
+        Construct();
+        Init();
+        OnSpawn?.Invoke(this, EventArgs.Empty);
+    }
+    
+    public T? TryGetComponent<T>() where T : class
     {
         return Components.Find(_component => _component.GetType() == typeof(T)) as T;
+    }
+    
+    public T GetComponent<T>() where T : class
+    {
+        var _component = TryGetComponent<T>();
+        if (_component == null)
+            throw new NullReferenceException($"Component {typeof(T)} was null");
+
+        return _component;
+    }
+
+    public bool HasComponent<T>() where T : class
+        => (TryGetComponent<T>() != null);
+    public void AddComponent(params Component[] _components)
+    {
+        foreach (var _component in _components)
+            Components.Add(_component);
+    }
+
+    public bool RemoveComponent(Component _component)
+    {
+        return Components.Remove(_component);
     }
     
     public void RenderComponents()
@@ -35,7 +75,7 @@ public abstract class Entity : IDisposable
     {
         OnDestroy?.Invoke(this, EventArgs.Empty);
         
-        EntityManager.Entities.Remove(this);
+        EntityController.Entities.Remove(this);
         Dispose();
     }
 
@@ -44,12 +84,4 @@ public abstract class Entity : IDisposable
     public abstract void Update();
 
     public virtual void Dispose() { }
-
-    protected Entity()
-    {
-        Components = new List<Component>();
-        
-        Id = EntityManager.IncrementEntityId();
-        EntityManager.Entities.Add(this);
-    }
 }

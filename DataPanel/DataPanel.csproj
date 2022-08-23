@@ -11,4 +11,14 @@
       <PackageReference Include="ParallelExtensionsExtras" Version="1.2.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="DataPanels" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="resources\dev\DataPanel Generator.exe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
