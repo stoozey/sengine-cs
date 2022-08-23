@@ -5,13 +5,16 @@ namespace DataPanel;
 
 public class DataPanel<T> : IDisposable where T: IPanelData
 {
-    protected readonly Dictionary<string, T> Data;
+    private readonly Dictionary<string, T> Data;
+
+    public string[] GetKeys()
+        => Data.Keys.ToArray();
     
     public T GetData(string _name)
     {
         return Data[_name];
     }
-
+    
     public void AddData(T _data)
     {
         Data.Add(_data.Name, _data);

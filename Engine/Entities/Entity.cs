@@ -1,4 +1,5 @@
-﻿using Engine.Entities.Components;
+﻿using Engine.Controllers;
+using Engine.Entities.Components;
 
 namespace Engine.Entities;
 
@@ -19,8 +20,8 @@ public abstract class Entity : IDisposable
     {
         Components = new List<Component>();
         
-        Id = EntityManager.IncrementEntityId();
-        EntityManager.Entities.Add(this);
+        Id = EntityController.IncrementEntityId();
+        EntityController.Entities.Add(this);
 
         Construct();
         Init();
@@ -74,7 +75,7 @@ public abstract class Entity : IDisposable
     {
         OnDestroy?.Invoke(this, EventArgs.Empty);
         
-        EntityManager.Entities.Remove(this);
+        EntityController.Entities.Remove(this);
         Dispose();
     }
 

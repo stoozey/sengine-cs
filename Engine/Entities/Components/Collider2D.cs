@@ -1,4 +1,5 @@
 ﻿using Engine.Common.Structs;
+using Engine.Controllers;
 using Raylib_cs;
 using Vector2 = System.Numerics.Vector2;
 
@@ -10,7 +11,7 @@ public class Collider2D : Component
 
     public string CollisionGroup;
     
-    public Collider2D(Entity _owner, string _collisionGroup = EntityManager.COLLISION_GROUP_DEFAULT, Rectangle _rectangle = new Rectangle()) : base(_owner)
+    public Collider2D(Entity _owner, string _collisionGroup = EntityController.COLLISION_GROUP_DEFAULT, Rectangle _rectangle = new Rectangle()) : base(_owner)
     {
         CollisionGroup = _collisionGroup;
         Rectangle = _rectangle;
@@ -19,14 +20,14 @@ public class Collider2D : Component
     public Entity? GetCollidingEntity()
     {
         var _position = new Vector2((int) Rectangle.x, (int) Rectangle.y);
-        return (from _entity in EntityManager.GetCollisionGroup2D(CollisionGroup) 
+        return (from _entity in EntityController.GetCollisionGroup2D(CollisionGroup) 
             let _collider2D = _entity.GetComponent<Collider2D>()
             where Raylib.CheckCollisionPointRec(_position, _collider2D.Rectangle) select _entity).FirstOrDefault();
     }
     
     public void CollideWith<T>() where T : Entity
     {
-        var _entities = EntityManager.GetEntitiesOfType<T>();
+        var _entities = EntityController.GetEntitiesOfType<T>();
 
         foreach (var _entity in _entities)
         {
@@ -39,7 +40,6 @@ public class Collider2D : Component
     
     public override void Render()
     {
-        Raylib.DrawRectangleLines((int) Rectangle.x, (int) Rectangle.y, (int) Rectangle.width, (int) Rectangle.height, Color.RED);
     }
 
     public override void Update()

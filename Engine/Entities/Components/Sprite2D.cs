@@ -3,6 +3,7 @@ using DataPanel.DataTypes;
 using Engine.Controllers;
 using Raylib_cs;
 
+
 namespace Engine.Entities.Components;
 
 public enum XAlign
@@ -44,7 +45,7 @@ public class Sprite2D : Component
     
     public void SetSprite(SpriteData _spriteData)
     {
-        var _texture = AssetController.GetTexture(_spriteData.Image);
+        var _texture = AssetController.GetTexture(_spriteData);
         texture = _texture;
         Width = _spriteData.Width;
         Height = _spriteData.Height;

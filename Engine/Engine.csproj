@@ -15,4 +15,10 @@
       <ProjectReference Include="..\DataPanel\DataPanel.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="resources\dev\tools\DataPanel Generator.exe">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

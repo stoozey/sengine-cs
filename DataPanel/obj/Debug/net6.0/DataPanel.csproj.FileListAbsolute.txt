@@ -10,6 +10,9 @@ E:\Programming\Projects\Rider\TempoSurge\DataPanel\obj\Debug\net6.0\DataPanel.dl
 E:\Programming\Projects\Rider\TempoSurge\DataPanel\obj\Debug\net6.0\refint\DataPanel.dll
 E:\Programming\Projects\Rider\TempoSurge\DataPanel\obj\Debug\net6.0\DataPanel.pdb
 E:\Programming\Projects\Rider\TempoSurge\DataPanel\obj\Debug\net6.0\ref\DataPanel.dll
+E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.deps.json
+E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.dll
+E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.pdb
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.csproj.AssemblyReference.cache
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.GeneratedMSBuildEditorConfig.editorconfig
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.AssemblyInfoInputs.cache
@@ -18,7 +21,4 @@ E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.cspro
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.dll
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\refint\DataPanel.dll
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\DataPanel.pdb
-E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.deps.json
-E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.dll
-E:\Programming\Projects\Rider\SEngine\DataPanel\bin\Debug\net6.0\DataPanel.pdb
 E:\Programming\Projects\Rider\SEngine\DataPanel\obj\Debug\net6.0\ref\DataPanel.dll

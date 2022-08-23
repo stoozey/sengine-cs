@@ -1,10 +1,12 @@
 ﻿using System.Numerics;
+using Engine.Entities;
 using Engine.Entities.Components;
 using Raylib_cs;
 
-namespace Engine.Entities;
 
-public static class EntityManager
+namespace Engine.Controllers;
+
+public static class EntityController
 {
     public const string COLLISION_GROUP_DEFAULT = "default";
     

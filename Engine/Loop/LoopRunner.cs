@@ -2,6 +2,7 @@
 using Engine.Loop.LoopHandlers;
 using Raylib_cs;
 
+
 namespace Engine.Loop;
 
 public static class Runner
@@ -85,7 +86,7 @@ public static class Runner
             foreach (var _loopHandler in LoopHandlers)
                 _loopHandler.Render();
             
-            Raylib.DrawFPS(0, 0);
+            //Raylib.DrawFPS(0, 0);
             
             Raylib.EndDrawing();
         }
